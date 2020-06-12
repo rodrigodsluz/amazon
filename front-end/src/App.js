@@ -1,6 +1,6 @@
 import React from "react";
 import data from "./data";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import "./App.css";
 import HomeScreen from "./Screen/HomeScreen";
 import ProductScreen from "./Screen/ProductScreen";
@@ -20,8 +20,7 @@ const App = () => {
         <header className="header">
           <div className="brand">
             <button onClick={openMenu}>&#9776;</button>
-            <Link
-            <a href="index.html">I need money</a>
+            <Link to="/">Fast Money</Link>
           </div>
           <div className="header-links">
             <a href="cart.html">Cart</a>
@@ -45,7 +44,7 @@ const App = () => {
         </aside>
         <main className="main">
           <div className="content">
-            <Route path="/products/:id" component={ProductScreen} />
+            <Route path="/sayadins/:id" component={ProductScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
           </div>
         </main>
