@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import data from "../data";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const HomeScreen = (props) => {
   const [products, setProducts] = useState([]);
+  const productList = useSelector((state) => state.productList);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,8 +20,8 @@ const HomeScreen = (props) => {
 
   return (
     <ul className="products">
-      {data.products.map((product) => (
-        <li>
+      {products.map((product) => (
+        <li key={product._id}>
           <div className="product">
             <Link to={`/sayadins/${product._id}`}>
               <img
